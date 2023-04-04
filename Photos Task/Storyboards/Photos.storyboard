@@ -38,8 +38,48 @@
             </objects>
             <point key="canvasLocation" x="48" y="-2"/>
         </scene>
+        <!--Photo DetailsVC-->
+        <scene sceneID="YWQ-X9-cEA">
+            <objects>
+                <viewController storyboardIdentifier="PhotoDetailsVC" id="LZ8-TP-NP5" customClass="PhotoDetailsVC" customModule="Photos_Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZYz-NG-JfB">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZt-3J-0CW">
+                                <rect key="frame" x="28" y="51" width="28.666666666666671" height="35.666666666666657"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="crossicn"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0HP-o8-rBg">
+                                <rect key="frame" x="32" y="102.66666666666669" width="326" height="675.33333333333326"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MfJ-Qb-cTF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LZt-3J-0CW" firstAttribute="top" secondItem="MfJ-Qb-cTF" secondAttribute="top" constant="4" id="9iu-lf-kks"/>
+                            <constraint firstItem="MfJ-Qb-cTF" firstAttribute="trailing" secondItem="0HP-o8-rBg" secondAttribute="trailing" constant="32" id="C0o-eM-DeS"/>
+                            <constraint firstItem="0HP-o8-rBg" firstAttribute="leading" secondItem="MfJ-Qb-cTF" secondAttribute="leading" constant="32" id="aBq-qd-zLm"/>
+                            <constraint firstItem="0HP-o8-rBg" firstAttribute="top" secondItem="LZt-3J-0CW" secondAttribute="bottom" constant="16" id="d6P-qb-GrN"/>
+                            <constraint firstItem="LZt-3J-0CW" firstAttribute="leading" secondItem="MfJ-Qb-cTF" secondAttribute="leading" constant="28" id="hzj-gS-sg0"/>
+                            <constraint firstItem="MfJ-Qb-cTF" firstAttribute="bottom" secondItem="0HP-o8-rBg" secondAttribute="bottom" constant="32" id="lVQ-EB-bjc"/>
+                            <constraint firstItem="0HP-o8-rBg" firstAttribute="height" secondItem="ZYz-NG-JfB" secondAttribute="height" multiplier="0.8" id="s66-f1-6GO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="LZt-3J-0CW" id="FHO-aa-gdZ"/>
+                        <outlet property="selectedImg" destination="0HP-o8-rBg" id="aeK-CA-ci9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Vw-nw-Hhc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.84615384615381" y="-2.1327014218009479"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="crossicn" width="18.666666030883789" height="18.666666030883789"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -38,9 +38,11 @@ class PhotosVC: UIViewController {
             .bind(to: photosTV.rx.items) { [weak self] tableView, index, photo in
                 if photo.isAd == true {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "AdTVCell") ?? UITableViewCell(style: .default, reuseIdentifier: "AdTVCell")
+                    cell.selectionStyle = .none
                     return cell
                 } else {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "PhotosTVCell", for: IndexPath(row: index, section: 0)) as! PhotosTVCell
+                    cell.selectionStyle = .none
                     cell.photo = photo
                     return cell
                 }
@@ -75,7 +77,13 @@ class PhotosVC: UIViewController {
         Observable
             .zip(self.photosTV.rx.itemSelected, self.photosTV.rx.modelSelected(Photos.self))
             .bind { [unowned self] indexPath, model in
-                
+                if (indexPath.row + 1) % 6 != 0 {
+                    let storyboard = UIStoryboard(name: "Photos", bundle: nil)
+                    let PhotoDetailsVC = storyboard.instantiateViewController(withIdentifier: "PhotoDetailsVC") as! PhotoDetailsVC
+                    PhotoDetailsVC.modalPresentationStyle = .overCurrentContext
+                    PhotoDetailsVC.photoDetailsViewModel.selectedPhoto.accept(model)
+                    self.present(PhotoDetailsVC, animated: true)
+                }
             }
             .disposed(by: disposeBag)
     }

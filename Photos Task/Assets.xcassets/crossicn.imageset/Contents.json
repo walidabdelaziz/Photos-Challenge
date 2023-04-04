@@ -1,21 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "backButton.png",
+      "filename" : "crossicn.png",
       "idiom" : "universal",
-      "language-direction" : "left-to-right",
       "scale" : "1x"
     },
     {
-      "filename" : "backButton@2x.png",
+      "filename" : "crossicn@2x.png",
       "idiom" : "universal",
-      "language-direction" : "left-to-right",
       "scale" : "2x"
     },
     {
-      "filename" : "backButton@3x.png",
+      "filename" : "crossicn@3x.png",
       "idiom" : "universal",
-      "language-direction" : "left-to-right",
       "scale" : "3x"
     }
   ],
