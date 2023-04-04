@@ -32,7 +32,11 @@ class PhotoDetailsVC: UIViewController {
             .bind(onNext: {
                 (selectedPhoto) in
                 self.selectedImg.sd_setImage(with: URL(string: selectedPhoto.downloadURL ?? ""))
+                self.setBackgroundColor()
             }).disposed(by: disposeBag)
+    }
+    func setBackgroundColor(){
+        view.backgroundColor = self.selectedImg.image?.getDominantColor()
     }
 
 }
