@@ -21,6 +21,8 @@ Loads a loading indicator when fetching photos.
 Implements pagination when the user reaches the end of the collection view.
 Caches 20 images using UserDefaults.
 Displays photo details when the user taps on a photo using a detail view.
+Change background color to the most dominant color of selected photo.
+Unit tests for photos view model.
 
 *MVVM Architecture
 The app follows MVVM (Model-View-ViewModel) architecture, which separates the responsibilities of the app into three layers:
