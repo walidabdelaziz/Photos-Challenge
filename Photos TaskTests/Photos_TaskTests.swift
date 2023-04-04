@@ -6,31 +6,98 @@
 //
 
 import XCTest
+import RxSwift
 @testable import Photos_Task
 
-final class Photos_TaskTests: XCTestCase {
+class PhotosViewModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var viewModel: PhotosViewModel!
+    var disposeBag: DisposeBag!
+
+    override func setUp() {
+        super.setUp()
+        viewModel = PhotosViewModel()
+        disposeBag = DisposeBag()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        disposeBag = nil
+        viewModel = nil
+        super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testGetPhotos_Success() {
+        // Given
+        let photosExpectation = expectation(description: "Photos loaded successfully")
+        var photos: [Photos] = []
+        viewModel.isSuccess.asObservable().subscribe(onNext: { success in
+            if success {
+                photos = self.viewModel.photos.value
+                photosExpectation.fulfill()
+            }
+        }).disposed(by: disposeBag)
+
+        // When
+        viewModel.getPhotos()
+
+        // Then
+        wait(for: [photosExpectation], timeout: 5)
+        XCTAssertTrue(photos.count > 0)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testGetPhotos_NoInternetConnection() {
+        // Given
+        let photosExpectation = expectation(description: "Cached photos loaded due to no internet connection")
+        viewModel.isSuccess.asObservable().subscribe(onNext: { success in
+            if success {
+                photosExpectation.fulfill()
+            }
+        }).disposed(by: disposeBag)
+
+        // When
+        viewModel.isLoading.accept(false)
+        viewModel.error.onNext(NetworkError.noInternetConnection)
+        viewModel.getPhotos()
+
+        // Then
+        wait(for: [photosExpectation], timeout: 5)
+        XCTAssertTrue(viewModel.photos.value.count > 0)
+    }
+
+    func testLoadNextPageTrigger_Success() {
+        // Given
+        let photosExpectation = expectation(description: "Photos loaded successfully")
+        var photos: [Photos] = []
+        viewModel.isSuccess.asObservable().subscribe(onNext: { success in
+            if success {
+                photos = self.viewModel.photos.value
+                photosExpectation.fulfill()
+            }
+        }).disposed(by: disposeBag)
+
+        // When
+        viewModel.loadNextPageTrigger.onNext(())
+        viewModel.getPhotos()
+
+        // Then
+        wait(for: [photosExpectation], timeout: 5)
+        XCTAssertTrue(photos.count > 0)
+    }
+
+    func testSaveCachedPhotos() {
+        // Given
+        let photos = [Photos(id: "1", downloadURL: "url"), Photos(id: "2", downloadURL: "url")]
+        viewModel.photos.accept(photos)
+
+        // When
+        viewModel.saveCachedPhotos()
+
+        // Then
+        let cachedPhotos = PreferenceManager.getCachedPhotos()
+        XCTAssertEqual(cachedPhotos.count, 2)
+        XCTAssertEqual(cachedPhotos.first?.id, "1")
+        XCTAssertEqual(cachedPhotos.last?.id, "2")
     }
 
 }
+
