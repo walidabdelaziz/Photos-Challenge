@@ -19,6 +19,7 @@
 		CB0B9D9829DC2BF400787B0D /* Photos_TaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9D9729DC2BF400787B0D /* Photos_TaskUITestsLaunchTests.swift */; };
 		CB0B9DAB29DC31AE00787B0D /* Photos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0B9DAA29DC31AE00787B0D /* Photos.storyboard */; };
 		CB0B9DAD29DC31C200787B0D /* PhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9DAC29DC31C200787B0D /* PhotosVC.swift */; };
+		CB0B9DAF29DC354700787B0D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9DAE29DC354700787B0D /* NetworkManager.swift */; };
 		EDC93D2D33385BF64F457799 /* Pods_Photos_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF679219EAAA50F75FFF47C8 /* Pods_Photos_Task.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		CB0B9D9729DC2BF400787B0D /* Photos_TaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos_TaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CB0B9DAA29DC31AE00787B0D /* Photos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Photos.storyboard; sourceTree = "<group>"; };
 		CB0B9DAC29DC31C200787B0D /* PhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosVC.swift; sourceTree = "<group>"; };
+		CB0B9DAE29DC354700787B0D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CE1BC06D29B3442AF765831E /* Pods-Photos TaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos TaskTests.debug.xcconfig"; path = "Target Support Files/Pods-Photos TaskTests/Pods-Photos TaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF7A983DC2C2FCDBD8BD9348 /* Pods-Photos Task-Photos TaskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos Task-Photos TaskUITests.release.xcconfig"; path = "Target Support Files/Pods-Photos Task-Photos TaskUITests/Pods-Photos Task-Photos TaskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DF679219EAAA50F75FFF47C8 /* Pods_Photos_Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photos_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,7 @@
 		CB0B9DA829DC300500787B0D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CB0B9DAE29DC354700787B0D /* NetworkManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB0B9DAF29DC354700787B0D /* NetworkManager.swift in Sources */,
 				CB0B9D7929DC2BF100787B0D /* SplashVC.swift in Sources */,
 				CB0B9DAD29DC31C200787B0D /* PhotosVC.swift in Sources */,
 				CB0B9D7529DC2BF100787B0D /* AppDelegate.swift in Sources */,
