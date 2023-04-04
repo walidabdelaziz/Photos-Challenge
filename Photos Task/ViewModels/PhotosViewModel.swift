@@ -32,7 +32,16 @@ class PhotosViewModel {
             case .success(let response):
                 
                 self.currentPage += 1
-                self.photos.accept((self.photos.value) + (response))
+                
+                // insert ad after 5 images
+                let photosWithAds = response.enumerated().flatMap { (index, photo) -> [Photos] in
+                    if (index + 1) % 5 == 0 {
+                        return [photo, Photos(isAd: true)]
+                    } else {
+                        return [photo]
+                    }
+                }
+                self.photos.accept((self.photos.value) + (photosWithAds))
             case .failure(let error):
                 // handle error
                 print(error)
@@ -47,5 +56,5 @@ class PhotosViewModel {
                 self?.getPhotos()
             }).disposed(by: disposeBag)
     }
-    
+ 
 }
