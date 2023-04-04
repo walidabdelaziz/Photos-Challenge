@@ -23,6 +23,7 @@
 		CB0B9DB129DC359900787B0D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9DB029DC359900787B0D /* Utils.swift */; };
 		CB0B9DB329DC35CA00787B0D /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9DB229DC35CA00787B0D /* Consts.swift */; };
 		CB0B9DB529DC367100787B0D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9DB429DC367100787B0D /* Photos.swift */; };
+		CB0B9DB729DC36EE00787B0D /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9DB629DC36EE00787B0D /* PhotosViewModel.swift */; };
 		EDC93D2D33385BF64F457799 /* Pods_Photos_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF679219EAAA50F75FFF47C8 /* Pods_Photos_Task.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		CB0B9DB029DC359900787B0D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		CB0B9DB229DC35CA00787B0D /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		CB0B9DB429DC367100787B0D /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		CB0B9DB629DC36EE00787B0D /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
 		CE1BC06D29B3442AF765831E /* Pods-Photos TaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos TaskTests.debug.xcconfig"; path = "Target Support Files/Pods-Photos TaskTests/Pods-Photos TaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF7A983DC2C2FCDBD8BD9348 /* Pods-Photos Task-Photos TaskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos Task-Photos TaskUITests.release.xcconfig"; path = "Target Support Files/Pods-Photos Task-Photos TaskUITests/Pods-Photos Task-Photos TaskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DF679219EAAA50F75FFF47C8 /* Pods_Photos_Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photos_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +228,7 @@
 		CB0B9DA929DC301A00787B0D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CB0B9DB629DC36EE00787B0D /* PhotosViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB0B9DB129DC359900787B0D /* Utils.swift in Sources */,
+				CB0B9DB729DC36EE00787B0D /* PhotosViewModel.swift in Sources */,
 				CB0B9DB329DC35CA00787B0D /* Consts.swift in Sources */,
 				CB0B9DAF29DC354700787B0D /* NetworkManager.swift in Sources */,
 				CB0B9D7929DC2BF100787B0D /* SplashVC.swift in Sources */,

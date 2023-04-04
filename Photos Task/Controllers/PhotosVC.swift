@@ -9,6 +9,7 @@ import UIKit
 
 class PhotosVC: UIViewController {
 
+    @IBOutlet weak var photosTV: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
