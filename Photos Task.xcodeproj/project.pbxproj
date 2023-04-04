@@ -10,7 +10,6 @@
 		620F36846B185BDC597396A4 /* Pods_Photos_TaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2713B4D77A520CA0434650 /* Pods_Photos_TaskTests.framework */; };
 		83E70B931D231453DF5F66A8 /* Pods_Photos_Task_Photos_TaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947BCE7DBB4C90070204B72 /* Pods_Photos_Task_Photos_TaskUITests.framework */; };
 		CB0B9D7529DC2BF100787B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9D7429DC2BF100787B0D /* AppDelegate.swift */; };
-		CB0B9D7729DC2BF100787B0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9D7629DC2BF100787B0D /* SceneDelegate.swift */; };
 		CB0B9D7929DC2BF100787B0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0B9D7829DC2BF100787B0D /* ViewController.swift */; };
 		CB0B9D7C29DC2BF100787B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0B9D7A29DC2BF100787B0D /* Main.storyboard */; };
 		CB0B9D7E29DC2BF400787B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0B9D7D29DC2BF400787B0D /* Assets.xcassets */; };
@@ -46,7 +45,6 @@
 		C947BCE7DBB4C90070204B72 /* Pods_Photos_Task_Photos_TaskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photos_Task_Photos_TaskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0B9D7129DC2BF100787B0D /* Photos Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photos Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0B9D7429DC2BF100787B0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB0B9D7629DC2BF100787B0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CB0B9D7829DC2BF100787B0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB0B9D7B29DC2BF100787B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB0B9D7D29DC2BF400787B0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				CE1BC06D29B3442AF765831E /* Pods-Photos TaskTests.debug.xcconfig */,
 				C17489C6AF0FC0330EFB8B83 /* Pods-Photos TaskTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -141,9 +138,12 @@
 			isa = PBXGroup;
 			children = (
 				CB0B9D7429DC2BF100787B0D /* AppDelegate.swift */,
-				CB0B9D7629DC2BF100787B0D /* SceneDelegate.swift */,
-				CB0B9D7829DC2BF100787B0D /* ViewController.swift */,
-				CB0B9D7A29DC2BF100787B0D /* Main.storyboard */,
+				CB0B9DA829DC300500787B0D /* Helpers */,
+				CB0B9DA729DC2FD300787B0D /* Cells */,
+				CB0B9DA629DC2FCA00787B0D /* Models */,
+				CB0B9DA929DC301A00787B0D /* ViewModels */,
+				CB0B9DA429DC2FB300787B0D /* Controllers */,
+				CB0B9DA529DC2FBE00787B0D /* Storyboards */,
 				CB0B9D7D29DC2BF400787B0D /* Assets.xcassets */,
 				CB0B9D7F29DC2BF400787B0D /* LaunchScreen.storyboard */,
 				CB0B9D8229DC2BF400787B0D /* Info.plist */,
@@ -166,6 +166,50 @@
 				CB0B9D9729DC2BF400787B0D /* Photos_TaskUITestsLaunchTests.swift */,
 			);
 			path = "Photos TaskUITests";
+			sourceTree = "<group>";
+		};
+		CB0B9DA429DC2FB300787B0D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB0B9D7829DC2BF100787B0D /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CB0B9DA529DC2FBE00787B0D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CB0B9D7A29DC2BF100787B0D /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CB0B9DA629DC2FCA00787B0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CB0B9DA729DC2FD300787B0D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CB0B9DA829DC300500787B0D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CB0B9DA929DC301A00787B0D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,7 +471,6 @@
 			files = (
 				CB0B9D7929DC2BF100787B0D /* ViewController.swift in Sources */,
 				CB0B9D7529DC2BF100787B0D /* AppDelegate.swift in Sources */,
-				CB0B9D7729DC2BF100787B0D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
