@@ -10,10 +10,8 @@ import Alamofire
 import SwiftyJSON
 
 enum NetworkError: Error {
-    case invalidUrl
-    case invalidParameters
     case invalidResponse
-    case invalidToken
+    case noInternetConnection
 }
 
 enum Result<T> {
@@ -24,10 +22,9 @@ enum Result<T> {
 class NetworkManager {
 
     static let shared = NetworkManager()
-
+    let reachabilityManager = NetworkReachabilityManager()
     private init() {}
-
-
+    
     func request<T: Decodable>(_ url: String,
                                method: HTTPMethod = .get,
                                parameters: Parameters? = nil,
@@ -35,18 +32,22 @@ class NetworkManager {
                                headers: [String: String]? = nil,
                                completionHandler: @escaping (Result<T>) -> Void) {
                 
-        Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).validate(statusCode: 200..<300).responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let decodedObject = try JSONDecoder().decode(T.self, from: data)
-                    completionHandler(Result.success(decodedObject))
-                } catch {
+        if reachabilityManager?.isReachable ?? false {
+            Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).validate(statusCode: 200..<300).responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let decodedObject = try JSONDecoder().decode(T.self, from: data)
+                        completionHandler(Result.success(decodedObject))
+                    } catch {
+                        completionHandler(Result.failure(.invalidResponse))
+                    }
+                case .failure(_):
                     completionHandler(Result.failure(.invalidResponse))
                 }
-            case .failure(_):
-                completionHandler(Result.failure(.invalidResponse))
             }
+        } else {
+            completionHandler(Result.failure(.noInternetConnection))
         }
     }
 
