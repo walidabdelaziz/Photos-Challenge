@@ -16,9 +16,9 @@ Build and run the project on your simulator or device.
 
 *Features
 Fetches photos from an API using Alamofire.
-Displays photos in a collection view using RxSwift and SDWebImage.
+Displays photos in a table view using RxSwift and SDWebImage.
 Loads a loading indicator when fetching photos.
-Implements pagination when the user reaches the end of the collection view.
+Implements pagination when the user reaches the end of the table view.
 Caches 20 images using UserDefaults.
 Displays photo details when the user taps on a photo using a detail view.
 Change background color to the most dominant color of selected photo.
@@ -36,13 +36,13 @@ The ViewModel layer is responsible for the business logic of the app, and uses R
 The app uses Alamofire for making network requests to fetch photos from an API. The NetworkManager class handles the network requests, and returns the response in a Result object which can be either a success or failure case.
 
 *Image Loading
-The app uses SDWebImage for loading images asynchronously from URLs. This library provides caching and memory management of images and allows for smooth scrolling of the collection view.
+The app uses SDWebImage for loading images asynchronously from URLs. This library provides caching and memory management of images and allows for smooth scrolling of the table view.
 
 *Loading Indicator
 The app uses NVActivityIndicatorView to show a loading indicator while fetching photos.
 
 *Pagination
-The app implements pagination when the user reaches the end of the collection view. This way, the app can fetch more photos from the API without fetching all of the photos at once.
+The app implements pagination when the user reaches the end of the table view. This way, the app can fetch more photos from the API without fetching all of the photos at once.
 
 *Caching
 The app caches 20 images using UserDefaults. This way, the app can show previously loaded images when the user is offline or when there is a network error.
